@@ -52,7 +52,7 @@
 }
 body.admin-locked main,
 body.admin-locked header {
-  filter: blur(8px);
+  filter: none !important;
   pointer-events: none;
   user-select: none;
 }
@@ -108,9 +108,23 @@ body.admin-locked header {
 }
 body.admin-locked main,
 body.admin-locked header {
-  filter: blur(8px);
+  filter: none !important;
   pointer-events: none;
   user-select: none;
+}
+
+
+/* Admin blur fix: keep the page visible behind the password box, no blur */
+#passwordGate {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(24,144,255,.24), transparent 34%),
+    radial-gradient(circle at 80% 0%, rgba(241,199,107,.18), transparent 32%),
+    rgba(2,6,12,.88) !important;
+  backdrop-filter: none !important;
+}
+body.admin-locked main,
+body.admin-locked header {
+  filter: none !important;
 }
 
 </style>
@@ -154,7 +168,7 @@ const defaultData={projects:[],reviews:[{stars:5,title:"Clean, professional exte
         gate.classList.add("hidden");
         return;
       }
-      error.textContent = "Mot de passe incorrect. Essaie exactement : Hailite2026!";
+      error.textContent = "Mot de passe incorrect.";
       input.value = "";
       input.focus();
     }

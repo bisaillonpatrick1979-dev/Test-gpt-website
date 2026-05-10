@@ -72,3 +72,30 @@ For a real project album:
 3. Export site-content.json
 4. Upload site-content.json to GitHub beside index.html
 5. Vercel redeploys
+
+
+## Real service example photos
+
+The service galleries were updated with product-specific example photos:
+- vinyl siding
+- soffit & fascia / eaves lining
+- Hardie Board / fiber cement style siding
+- metal/architectural cladding
+- roofing shingles
+
+Most examples are loaded remotely from Wikimedia Commons or public image sources. Replace these with your own project photos later for the most professional final version.
+
+## Admin blur fix
+
+The admin password screen no longer blurs the entire page.  
+Password remains:
+
+```
+Hailite2026!
+```
+
+After replacing files in GitHub, test with:
+
+```
+/admin.html?v=3
+```
