@@ -39,3 +39,36 @@ Important: this is a simple static-site password gate. It is useful to avoid cas
 The public `index.html` no longer shows an Admin button or link.
 
 The file `admin.html` still exists in the project for private/manual use, but visitors will not see a direct button to it from the website.
+
+
+## Mot de passe admin corrigé
+
+Mot de passe actuel:
+
+```
+Hailite2026!
+```
+
+Après upload dans GitHub, ouvre:
+
+```
+/admin.html?v=2
+```
+
+Cela force le navigateur à charger la nouvelle version.
+
+
+## Services + project albums
+
+This version adds:
+- brighter service/project images
+- clickable service cards with example galleries
+- clickable project cards with swipeable albums
+- admin supports selecting multiple photos for one project
+
+For a real project album:
+1. Open admin.html
+2. Choose multiple photos in "Photos du projet / album"
+3. Export site-content.json
+4. Upload site-content.json to GitHub beside index.html
+5. Vercel redeploys

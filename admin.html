@@ -57,70 +57,128 @@ body.admin-locked header {
   user-select: none;
 }
 
+
+/* Admin password gate - fixed */
+#passwordGate {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  background: radial-gradient(circle at 20% 0%, rgba(24,144,255,.22), transparent 34%),
+              radial-gradient(circle at 80% 0%, rgba(241,199,107,.16), transparent 32%),
+              rgba(2,6,12,.96);
+  backdrop-filter: blur(16px);
+}
+#passwordGate.hidden { display: none !important; }
+.gate-box {
+  width: min(460px, 100%);
+  border: 1px solid rgba(241,199,107,.34);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(11,23,37,.97), rgba(5,10,17,.99));
+  box-shadow: 0 24px 70px rgba(0,0,0,.45);
+  padding: 26px;
+}
+.gate-box h1 {
+  font-family: "Barlow Condensed", Inter, sans-serif;
+  font-size: 2.3rem;
+  line-height: .95;
+  margin: 0 0 8px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.gate-box p { margin: 0 0 18px; color: var(--muted); }
+.gate-box input {
+  width: 100%;
+  border: 1px solid rgba(128,194,255,.25);
+  border-radius: 12px;
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  padding: 13px;
+  outline: none;
+}
+.gate-box input:focus { border-color: rgba(24,144,255,.70); }
+.gate-error {
+  min-height: 22px;
+  margin-top: 10px;
+  color: #ffb7b7;
+  font-weight: 800;
+}
+body.admin-locked main,
+body.admin-locked header {
+  filter: blur(8px);
+  pointer-events: none;
+  user-select: none;
+}
+
 </style>
 </head>
 <body class="admin-locked">
 
-<div id="passwordGate">
-  <div class="gate-box">
-    <h1>Admin Access</h1>
-    <p>Entre le mot de passe pour modifier les photos, projets, avis affichés et blog.</p>
-    <label>Mot de passe admin</label>
-    <input id="adminPasswordInput" type="password" placeholder="Mot de passe..." autocomplete="current-password">
-    <div class="actions">
-      <button class="primary" id="adminPasswordBtn">Déverrouiller</button>
-    </div>
-    <div class="gate-error" id="adminPasswordError"></div>
-  </div>
-</div>
+
 
 <header class="header"><div class="brand"><strong>Hailite Xteriors Admin</strong><small>Version Vercel sans Cloudflare — photos, projets, avis affichés, blog</small></div><a class="btn" href="index.html">Retour au site</a></header>
 <main class="container">
 <section class="card notice"><h1>Admin local</h1><p><strong>Important :</strong> cette page fonctionne sans Cloudflare et sans base de données. Elle sert à préparer le contenu facilement. Pour publier sur Vercel, clique <strong>Exporter site-content.json</strong>, puis upload ce fichier dans GitHub à côté de <strong>index.html</strong>. Vercel va redéployer automatiquement.</p><p>Ce n’est pas encore une admin sécurisée qui écrit directement dans le site. C’est la meilleure version simple tant qu’on reste sur Vercel sans backend.</p></section>
 <section class="card"><div class="tabs"><button class="tab active" data-tab="projects">Photos / Projets</button><button class="tab" data-tab="reviews">Avis affichés</button><button class="tab" data-tab="blog">Blog</button><button class="tab" data-tab="export">Exporter</button></div>
-<div class="panel active" id="projects"><h2>Ajouter une photo de projet</h2><div class="grid"><div><label>Ville / secteur</label><input id="projectCity" placeholder="Calgary, Airdrie, Cochrane..." /><label>Titre du projet</label><input id="projectTitle" placeholder="Siding, soffit, fascia..." /><label>Photo</label><input id="projectImage" type="file" accept="image/*" /></div><div><label>Description courte</label><textarea id="projectText" placeholder="Décris le projet en 1 ou 2 lignes..."></textarea><div class="actions"><button class="primary" id="addProject">Ajouter le projet</button></div></div></div><div class="preview-grid" id="projectPreview"></div></div>
+<div class="panel active" id="projects"><h2>Ajouter une photo de projet</h2><div class="grid"><div><label>Ville / secteur</label><input id="projectCity" placeholder="Calgary, Airdrie, Cochrane..." /><label>Titre du projet</label><input id="projectTitle" placeholder="Siding, soffit, fascia..." /><label>Photos du projet / album</label><input id="projectImage" type="file" accept="image/*" multiple />
+          <p style="font-size:.86rem;color:var(--muted);margin:8px 0 0;">Tu peux choisir plusieurs photos pour le même projet. Le site ouvrira un album swipe.</p></div><div><label>Description courte</label><textarea id="projectText" placeholder="Décris le projet en 1 ou 2 lignes..."></textarea><div class="actions"><button class="primary" id="addProject">Ajouter le projet</button></div></div></div><div class="preview-grid" id="projectPreview"></div></div>
 <div class="panel" id="reviews"><h2>Ajouter un avis affiché</h2><p>Pour l’instant, ce sont des avis que tu contrôles toi-même. Plus tard, on pourra faire des avis clients réels avec base de données.</p><div class="grid"><div><label>Nombre d’étoiles</label><select id="reviewStars"><option value="5">★★★★★ 5</option><option value="4">★★★★ 4</option><option value="3">★★★ 3</option></select><label>Titre</label><input id="reviewTitle" placeholder="Travail propre et professionnel" /><label>Client / secteur</label><input id="reviewMeta" placeholder="Client à Calgary" /></div><div><label>Commentaire</label><textarea id="reviewText" placeholder="Écris le commentaire à afficher..."></textarea><div class="actions"><button class="primary" id="addReview">Ajouter l’avis</button></div></div></div><div class="preview-grid" id="reviewPreview"></div></div>
 <div class="panel" id="blog"><h2>Ajouter un article / conseil</h2><div class="grid"><div><label>Catégorie</label><input id="blogCategory" placeholder="Hail Damage, Materials, Maintenance..." /><label>Titre</label><input id="blogTitle" placeholder="What to check after a hailstorm" /></div><div><label>Texte court</label><textarea id="blogText" placeholder="Petit texte de blog ou conseil..."></textarea><div class="actions"><button class="primary" id="addBlog">Ajouter au blog</button></div></div></div><div class="preview-grid" id="blogPreview"></div></div>
 <div class="panel" id="export"><h2>Exporter pour publier</h2><p>Quand tu as fini d’ajouter tes photos, avis ou articles, exporte le fichier. Ensuite, upload <strong>site-content.json</strong> dans ton repo GitHub, au même endroit que <strong>index.html</strong>. Vercel va redéployer le site.</p><div class="actions"><button class="primary" id="exportJson">Exporter site-content.json</button><button class="danger" id="clearAll">Tout effacer localement</button></div><p class="footer-note">Les données restent sauvegardées dans ton navigateur pour continuer plus tard sur le même appareil.</p></div></section></main>
 <script>
 const defaultData={projects:[],reviews:[{stars:5,title:"Clean, professional exterior work",text:"The finish was sharp, the site was kept clean, and the work was done with real attention to detail.",meta:"Calgary, AB • Siding & Fascia"},{stars:5,title:"Reliable and easy to deal with",text:"Good communication, strong workmanship, and the exterior looks much better than before.",meta:"Airdrie, AB • Soffit & Cladding"},{stars:5,title:"Built for Alberta weather",text:"The work looks solid and professional. The crew understood what matters for wind, hail and cold weather.",meta:"Cochrane, AB • Exterior upgrade"}],blog:[]};let data=JSON.parse(localStorage.getItem("hailiteAdminContent")||"null")||defaultData;function save(){localStorage.setItem("hailiteAdminContent",JSON.stringify(data));render()}function escapeHtml(value){return String(value||"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[ch]))}async function resizeImage(file,maxW=1200,maxH=850,quality=.78){const image=new Image();image.src=await new Promise(resolve=>{const reader=new FileReader();reader.onload=e=>resolve(e.target.result);reader.readAsDataURL(file)});await new Promise(resolve=>image.onload=resolve);let{width,height}=image;const ratio=Math.min(maxW/width,maxH/height,1);width=Math.round(width*ratio);height=Math.round(height*ratio);const canvas=document.createElement("canvas");canvas.width=width;canvas.height=height;canvas.getContext("2d").drawImage(image,0,0,width,height);return canvas.toDataURL("image/jpeg",quality)}function render(){document.getElementById("projectPreview").innerHTML=data.projects.map((p,i)=>`<div class="item">${p.image?`<img src="${p.image}" alt="">`:""}<div class="body"><small>${escapeHtml(p.city)}</small><strong>${escapeHtml(p.title)}</strong><p>${escapeHtml(p.text)}</p><button class="danger" onclick="removeItem('projects',${i})">Supprimer</button></div></div>`).join("");document.getElementById("reviewPreview").innerHTML=data.reviews.map((r,i)=>`<div class="item"><div class="body"><small>${"★".repeat(Number(r.stars||5))}</small><strong>${escapeHtml(r.title)}</strong><p>${escapeHtml(r.text)}</p><p>${escapeHtml(r.meta)}</p><button class="danger" onclick="removeItem('reviews',${i})">Supprimer</button></div></div>`).join("");document.getElementById("blogPreview").innerHTML=data.blog.map((b,i)=>`<div class="item"><div class="body"><small>${escapeHtml(b.category)}</small><strong>${escapeHtml(b.title)}</strong><p>${escapeHtml(b.text)}</p><button class="danger" onclick="removeItem('blog',${i})">Supprimer</button></div></div>`).join("")}function removeItem(type,index){data[type].splice(index,1);save()}document.querySelectorAll(".tab").forEach(btn=>{btn.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));btn.classList.add("active");document.getElementById(btn.dataset.tab).classList.add("active")})});document.getElementById("addProject").addEventListener("click",async()=>{const file=document.getElementById("projectImage").files[0];const image=file?await resizeImage(file):"";data.projects.unshift({city:document.getElementById("projectCity").value,title:document.getElementById("projectTitle").value,text:document.getElementById("projectText").value,image});document.getElementById("projectCity").value="";document.getElementById("projectTitle").value="";document.getElementById("projectText").value="";document.getElementById("projectImage").value="";save()});document.getElementById("addReview").addEventListener("click",()=>{data.reviews.unshift({stars:document.getElementById("reviewStars").value,title:document.getElementById("reviewTitle").value,meta:document.getElementById("reviewMeta").value,text:document.getElementById("reviewText").value});document.getElementById("reviewTitle").value="";document.getElementById("reviewMeta").value="";document.getElementById("reviewText").value="";save()});document.getElementById("addBlog").addEventListener("click",()=>{data.blog.unshift({category:document.getElementById("blogCategory").value,title:document.getElementById("blogTitle").value,text:document.getElementById("blogText").value});document.getElementById("blogCategory").value="";document.getElementById("blogTitle").value="";document.getElementById("blogText").value="";save()});document.getElementById("exportJson").addEventListener("click",()=>{const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="site-content.json";a.click();URL.revokeObjectURL(a.href)});document.getElementById("clearAll").addEventListener("click",()=>{if(!confirm("Effacer toutes les données locales?"))return;data={projects:[],reviews:[],blog:[]};save()});render();
 
-// Simple static admin password gate for Vercel.
-// Change the password here if needed:
-const ADMIN_PASSWORD = "Hailite2026!";
 
-(function () {
-  const gate = document.getElementById("passwordGate");
-  const input = document.getElementById("adminPasswordInput");
-  const btn = document.getElementById("adminPasswordBtn");
-  const error = document.getElementById("adminPasswordError");
-
-  function unlock() {
-    const value = input.value.trim();
-    if (value === ADMIN_PASSWORD) {
-      sessionStorage.setItem("hailiteAdminUnlocked", "yes");
-      document.body.classList.remove("admin-locked");
-      gate.style.display = "none";
-      return;
-    }
-    error.textContent = "Mot de passe incorrect.";
-    input.value = "";
-    input.focus();
-  }
-
-  if (sessionStorage.getItem("hailiteAdminUnlocked") === "yes") {
-    document.body.classList.remove("admin-locked");
-    gate.style.display = "none";
-  } else {
-    setTimeout(() => input.focus(), 250);
-  }
-
-  btn.addEventListener("click", unlock);
-  input.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") unlock();
-  });
-})();
 
 </script>
+
+<script>
+(function () {
+  var ADMIN_PASSWORD = "Hailite2026!";
+
+  function startGate() {
+    var gate = document.getElementById("passwordGate");
+    var input = document.getElementById("adminPasswordInput");
+    var btn = document.getElementById("adminPasswordBtn");
+    var error = document.getElementById("adminPasswordError");
+    if (!gate || !input || !btn || !error) return;
+
+    function unlock() {
+      var value = (input.value || "").trim();
+      if (value === ADMIN_PASSWORD) {
+        sessionStorage.setItem("hailiteAdminUnlocked", "yes");
+        document.body.classList.remove("admin-locked");
+        gate.classList.add("hidden");
+        return;
+      }
+      error.textContent = "Mot de passe incorrect. Essaie exactement : Hailite2026!";
+      input.value = "";
+      input.focus();
+    }
+
+    if (sessionStorage.getItem("hailiteAdminUnlocked") === "yes") {
+      document.body.classList.remove("admin-locked");
+      gate.classList.add("hidden");
+      return;
+    }
+
+    btn.addEventListener("click", unlock);
+    input.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") unlock();
+    });
+    setTimeout(function () { input.focus(); }, 200);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", startGate);
+  } else {
+    startGate();
+  }
+})();
+</script>
+
 </body>
 </html>

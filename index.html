@@ -726,6 +726,159 @@ h1,h2,h3{margin:0;font-family:"Barlow Condensed", Inter, sans-serif}
 .project-card.dynamic,.review-card.dynamic,.blog-card.dynamic{animation:adminFadeIn .35s ease both}
 @keyframes adminFadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
+
+/* Brighter Services and Projects thumbnails */
+.service-card {
+  min-height: 132px;
+  cursor: pointer;
+}
+.project-card {
+  min-height: 118px;
+  cursor: pointer;
+}
+.card-photo,
+.pimg {
+  opacity: .94 !important;
+  filter: saturate(1.08) contrast(1.06) brightness(1.16) !important;
+}
+.service-card::after {
+  background: linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.58)) !important;
+}
+.project-card::after {
+  background: linear-gradient(90deg, rgba(0,0,0,.38), rgba(0,0,0,.04)) !important;
+}
+.service-card:hover .card-photo,
+.project-card:hover .pimg {
+  filter: saturate(1.14) contrast(1.08) brightness(1.28) !important;
+  transform: scale(1.035);
+}
+.card-photo,
+.pimg {
+  transition: transform .28s ease, filter .28s ease, opacity .28s ease;
+}
+.service-label strong,
+.project-card span {
+  text-shadow: 0 3px 14px rgba(0,0,0,.85);
+}
+
+/* Gallery modal for services and project albums */
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(0,0,0,.86);
+  backdrop-filter: blur(12px);
+}
+.gallery-modal.open {
+  display: flex;
+}
+.gallery-box {
+  width: min(1040px, 100%);
+  border: 1px solid rgba(128,194,255,.24);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(8,15,24,.96), rgba(3,7,12,.98));
+  box-shadow: 0 30px 90px rgba(0,0,0,.55);
+  overflow: hidden;
+}
+.gallery-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(128,194,255,.16);
+}
+.gallery-top small {
+  display: block;
+  color: var(--gold2);
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.gallery-title {
+  color: #fff;
+  font-family: "Barlow Condensed", Inter, sans-serif;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: .9;
+  margin: 0;
+}
+.gallery-close {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.06);
+  color: #fff;
+  font-size: 1.35rem;
+  cursor: pointer;
+}
+.gallery-stage {
+  position: relative;
+  background: #01050a;
+}
+.gallery-image {
+  width: 100%;
+  height: min(64vh, 620px);
+  object-fit: contain;
+  background: #01050a;
+}
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 56px;
+  border: 1px solid rgba(255,255,255,.24);
+  border-radius: 14px;
+  background: rgba(0,0,0,.42);
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.gallery-arrow.prev { left: 14px; }
+.gallery-arrow.next { right: 14px; }
+.gallery-caption {
+  padding: 14px 18px 18px;
+  color: #b8c5d3;
+  line-height: 1.55;
+}
+.gallery-counter {
+  color: var(--gold2);
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+.gallery-thumbs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 0 18px 18px;
+}
+.gallery-thumb {
+  flex: 0 0 86px;
+  height: 58px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-size: cover;
+  background-position: center;
+  opacity: .66;
+  cursor: pointer;
+}
+.gallery-thumb.active {
+  border-color: var(--gold2);
+  opacity: 1;
+}
+@media (max-width: 720px) {
+  .service-card { min-height: 150px; }
+  .project-card { min-height: 142px; }
+  .gallery-image { height: 56vh; }
+  .gallery-arrow { width: 42px; height: 50px; }
+}
+
 </style>
 </head>
 <body>
@@ -809,11 +962,11 @@ h1,h2,h3{margin:0;font-family:"Barlow Condensed", Inter, sans-serif}
   <div class="container row">
     <div class="side-title"><small data-i18n="servicesSmall">Our Premium</small><h2 data-i18n="servicesTitle">Services</h2><span class="bar"></span></div>
     <div class="services">
-      <article class="service-card"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?auto=format&fit=crop&w=700&q=80')"></div><div class="service-label"><span class="badge">⌂</span><strong data-i18n="siding">Siding</strong></div></article>
-      <article class="service-card"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=700&q=80')"></div><div class="service-label"><span class="badge">▰</span><strong data-i18n="soffit">Soffit & Fascia</strong></div></article>
-      <article class="service-card"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80')"></div><div class="service-label"><span class="badge">▤</span><strong data-i18n="cladding">Cladding</strong></div></article>
-      <article class="service-card"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=700&q=80')"></div><div class="service-label"><span class="badge">▥</span><strong data-i18n="hardie">Hardie Board</strong></div></article>
-      <article class="service-card"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=700&q=80')"></div><div class="service-label"><span class="badge">⌂</span><strong data-i18n="roofing">Roofing</strong></div></article>
+      <article class="service-card" data-service="siding" tabindex="0"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?auto=format&fit=crop&w=700&q=80')"></div><div class="service-label"><span class="badge">⌂</span><strong data-i18n="siding">Siding</strong></div></article>
+      <article class="service-card" data-service="soffit" tabindex="0"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=700&q=80')"></div><div class="service-label"><span class="badge">▰</span><strong data-i18n="soffit">Soffit & Fascia</strong></div></article>
+      <article class="service-card" data-service="cladding" tabindex="0"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80')"></div><div class="service-label"><span class="badge">▤</span><strong data-i18n="cladding">Cladding</strong></div></article>
+      <article class="service-card" data-service="hardie" tabindex="0"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=700&q=80')"></div><div class="service-label"><span class="badge">▥</span><strong data-i18n="hardie">Hardie Board</strong></div></article>
+      <article class="service-card" data-service="roofing" tabindex="0"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=700&q=80')"></div><div class="service-label"><span class="badge">⌂</span><strong data-i18n="roofing">Roofing</strong></div></article>
     </div>
   </div>
 
@@ -1268,5 +1421,192 @@ document.getElementById("year").textContent = new Date().getFullYear();
 })();
 
 </script>
+
+<div class="gallery-modal" id="galleryModal" aria-hidden="true">
+  <div class="gallery-box">
+    <div class="gallery-top">
+      <div>
+        <small id="galleryType">Gallery</small>
+        <h3 class="gallery-title" id="galleryTitle">Gallery</h3>
+      </div>
+      <button class="gallery-close" type="button" id="galleryClose" aria-label="Close">×</button>
+    </div>
+    <div class="gallery-stage" id="galleryStage">
+      <button class="gallery-arrow prev" type="button" id="galleryPrev" aria-label="Previous">‹</button>
+      <img class="gallery-image" id="galleryImage" alt="">
+      <button class="gallery-arrow next" type="button" id="galleryNext" aria-label="Next">›</button>
+    </div>
+    <div class="gallery-caption">
+      <div class="gallery-counter" id="galleryCounter">1 / 1</div>
+      <div id="galleryText"></div>
+    </div>
+    <div class="gallery-thumbs" id="galleryThumbs"></div>
+  </div>
+</div>
+
+
+<script>
+/* Services + Projects gallery modal */
+(function () {
+  const serviceGalleries = {
+    siding: {
+      type: "Service examples",
+      title: "Siding / Revêtement",
+      text: "Examples of exterior siding styles: horizontal lap siding, board & batten, modern panel looks, and exterior refresh work.",
+      images: [
+        "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=90"
+      ]
+    },
+    soffit: {
+      type: "Service examples",
+      title: "Soffit & Fascia",
+      text: "Soffit is the finished underside under the roof overhang. Fascia is the front board/metal edge that finishes and protects the roof line.",
+      images: [
+        "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=90"
+      ]
+    },
+    cladding: {
+      type: "Service examples",
+      title: "Cladding",
+      text: "Cladding gives an exterior a modern architectural finish around entrances, features, columns, walls and detail areas.",
+      images: [
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1600607688066-890987f18a86?auto=format&fit=crop&w=1400&q=90"
+      ]
+    },
+    hardie: {
+      type: "Service examples",
+      title: "Hardie Board",
+      text: "Hardie Board is a durable fiber-cement exterior product used for a strong, premium siding finish built for harsh weather.",
+      images: [
+        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=90"
+      ]
+    },
+    roofing: {
+      type: "Service examples",
+      title: "Roofing",
+      text: "Roofing examples include roofline repairs, storm-related replacement work, shingles, flashing details and exterior protection.",
+      images: [
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=90"
+      ]
+    }
+  };
+
+  const modal = document.getElementById("galleryModal");
+  const image = document.getElementById("galleryImage");
+  const title = document.getElementById("galleryTitle");
+  const type = document.getElementById("galleryType");
+  const text = document.getElementById("galleryText");
+  const counter = document.getElementById("galleryCounter");
+  const thumbs = document.getElementById("galleryThumbs");
+  const close = document.getElementById("galleryClose");
+  const prev = document.getElementById("galleryPrev");
+  const next = document.getElementById("galleryNext");
+  const stage = document.getElementById("galleryStage");
+
+  let current = { images: [], title: "", text: "", type: "" };
+  let index = 0;
+  let startX = 0;
+
+  function openGallery(gallery) {
+    if (!modal || !gallery || !gallery.images || !gallery.images.length) return;
+    current = gallery;
+    index = 0;
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    renderGallery();
+  }
+
+  function closeGallery() {
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  function renderGallery() {
+    const total = current.images.length;
+    if (!total) return;
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
+    image.src = current.images[index];
+    title.textContent = current.title || "Gallery";
+    type.textContent = current.type || "Gallery";
+    text.textContent = current.text || "";
+    counter.textContent = (index + 1) + " / " + total;
+    thumbs.innerHTML = current.images.map((src, i) =>
+      `<button class="gallery-thumb ${i === index ? "active" : ""}" style="background-image:url('${src.replace(/'/g, "%27")}')" type="button" data-i="${i}" aria-label="Image ${i + 1}"></button>`
+    ).join("");
+    thumbs.querySelectorAll(".gallery-thumb").forEach(btn => {
+      btn.addEventListener("click", () => {
+        index = Number(btn.dataset.i || 0);
+        renderGallery();
+      });
+    });
+  }
+
+  function openProjectGallery(card) {
+    const images = (card.dataset.images || "").split("|").filter(Boolean);
+    if (!images.length) return;
+    openGallery({
+      type: "Project album",
+      title: card.dataset.title || card.textContent.trim() || "Project",
+      text: card.dataset.text || "Project photo album.",
+      images
+    });
+  }
+
+  document.querySelectorAll(".service-card[data-service]").forEach(card => {
+    card.addEventListener("click", () => openGallery(serviceGalleries[card.dataset.service]));
+    card.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") openGallery(serviceGalleries[card.dataset.service]);
+    });
+  });
+
+  document.querySelectorAll(".project-card[data-images]").forEach(card => {
+    card.addEventListener("click", () => openProjectGallery(card));
+  });
+
+  if (close) close.addEventListener("click", closeGallery);
+  if (prev) prev.addEventListener("click", () => { index--; renderGallery(); });
+  if (next) next.addEventListener("click", () => { index++; renderGallery(); });
+  if (modal) modal.addEventListener("click", e => { if (e.target === modal) closeGallery(); });
+
+  document.addEventListener("keydown", e => {
+    if (!modal || !modal.classList.contains("open")) return;
+    if (e.key === "Escape") closeGallery();
+    if (e.key === "ArrowLeft") { index--; renderGallery(); }
+    if (e.key === "ArrowRight") { index++; renderGallery(); }
+  });
+
+  if (stage) {
+    stage.addEventListener("touchstart", e => { startX = e.touches[0].clientX; }, { passive: true });
+    stage.addEventListener("touchend", e => {
+      const diff = e.changedTouches[0].clientX - startX;
+      if (Math.abs(diff) > 45) {
+        index += diff < 0 ? 1 : -1;
+        renderGallery();
+      }
+    }, { passive: true });
+  }
+
+  window.HailiteGallery = { openGallery };
+})();
+</script>
+
 </body>
 </html>

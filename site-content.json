@@ -1,5 +1,27 @@
 {
-  "projects": [],
+  "projects": [
+    {
+      "city": "Calgary",
+      "title": "Siding & Fascia Example",
+      "text": "Example album. Replace with your real project photos.",
+      "image": "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?auto=format&fit=crop&w=900&q=90",
+      "images": [
+        "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=90"
+      ]
+    },
+    {
+      "city": "Airdrie",
+      "title": "Cladding Example",
+      "text": "Example album for cladding look and modern exterior finishes.",
+      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=90",
+      "images": [
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=90",
+        "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1400&q=90"
+      ]
+    }
+  ],
   "reviews": [
     {
       "stars": 5,
