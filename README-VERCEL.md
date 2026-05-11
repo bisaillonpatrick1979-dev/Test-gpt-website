@@ -99,3 +99,21 @@ After replacing files in GitHub, test with:
 ```
 /admin.html?v=3
 ```
+
+## Approved showroom services
+
+This version uses the approved showroom service photos and separates:
+- Vinyl Siding
+- Soffit
+- Fascia
+- Hardie Board / Hardie Panel
+- Cladding
+- Roofing
+
+Each service opens a showroom-style gallery with:
+- close-up / product sample image
+- installed finish images
+- no source links shown to website visitors
+- product type descriptions
+- relative price level
+- practical Alberta use case

@@ -903,6 +903,109 @@ h1,h2,h3{margin:0;font-family:"Barlow Condensed", Inter, sans-serif}
   text-transform: uppercase;
 }
 
+
+/* Approved showroom services */
+.services {
+  grid-template-columns: repeat(6, 1fr) !important;
+}
+.service-card {
+  min-height: 142px !important;
+  cursor: pointer;
+}
+.service-hint {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 4;
+  border: 1px solid rgba(248,212,139,.34);
+  background: rgba(0,0,0,.50);
+  color: var(--gold2);
+  padding: 5px 8px;
+  border-radius: 999px;
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+.card-photo,
+.pimg {
+  opacity: .96 !important;
+  filter: saturate(1.10) contrast(1.08) brightness(1.18) !important;
+}
+.service-card:hover .card-photo,
+.project-card:hover .pimg {
+  transform: scale(1.035);
+  filter: saturate(1.15) contrast(1.08) brightness(1.28) !important;
+}
+.gallery-box {
+  width: min(1120px, 100%) !important;
+}
+.gallery-caption {
+  max-height: 34vh;
+  overflow-y: auto;
+}
+.showroom-intro {
+  display: grid;
+  gap: 8px;
+}
+.showroom-intro p {
+  margin: 0;
+  color: #b8c5d3;
+  line-height: 1.55;
+}
+.showroom-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.showroom-tags span {
+  border: 1px solid rgba(248,212,139,.22);
+  background: rgba(248,212,139,.08);
+  color: var(--gold2);
+  border-radius: 999px;
+  padding: 6px 9px;
+  font-size: .74rem;
+  font-weight: 900;
+}
+.showroom-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 11px;
+  margin-top: 14px;
+}
+.showroom-card {
+  border: 1px solid rgba(128,194,255,.18);
+  border-radius: 12px;
+  background: rgba(255,255,255,.045);
+  padding: 12px;
+}
+.showroom-card strong {
+  display: block;
+  color: #fff;
+  margin-bottom: 7px;
+}
+.showroom-card small {
+  display: block;
+  color: var(--gold2);
+  font-weight: 900;
+  margin-bottom: 7px;
+  letter-spacing: .04em;
+}
+.showroom-card p {
+  margin: 0;
+  color: #b8c5d3;
+  font-size: .86rem;
+  line-height: 1.45;
+}
+@media (max-width: 1180px) {
+  .services { grid-template-columns: repeat(3, 1fr) !important; }
+}
+@media (max-width: 720px) {
+  .services { grid-template-columns: 1fr 1fr !important; }
+  .showroom-grid { grid-template-columns: 1fr; }
+}
+
 </style>
 </head>
 <body>
@@ -985,12 +1088,14 @@ h1,h2,h3{margin:0;font-family:"Barlow Condensed", Inter, sans-serif}
 <section class="section" id="services">
   <div class="container row">
     <div class="side-title"><small data-i18n="servicesSmall">Our Premium</small><h2 data-i18n="servicesTitle">Services</h2><span class="bar"></span></div>
+    
     <div class="services">
-      <article class="service-card" data-service="siding" tabindex="0"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?auto=format&fit=crop&w=700&q=80')"></div><div class="service-label"><span class="badge">⌂</span><strong data-i18n="siding">Siding</strong></div></article>
-      <article class="service-card" data-service="soffit" tabindex="0"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=700&q=80')"></div><div class="service-label"><span class="badge">▰</span><strong data-i18n="soffit">Soffit & Fascia</strong></div></article>
-      <article class="service-card" data-service="cladding" tabindex="0"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80')"></div><div class="service-label"><span class="badge">▤</span><strong data-i18n="cladding">Cladding</strong></div></article>
-      <article class="service-card" data-service="hardie" tabindex="0"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=700&q=80')"></div><div class="service-label"><span class="badge">▥</span><strong data-i18n="hardie">Hardie Board</strong></div></article>
-      <article class="service-card" data-service="roofing" tabindex="0"><div class="card-photo" style="background-image:url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=700&q=80')"></div><div class="service-label"><span class="badge">⌂</span><strong data-i18n="roofing">Roofing</strong></div></article>
+      <article class="service-card" data-service="siding" tabindex="0"><div class="card-photo" style="background-image:url('https://images.openai.com/static-rsc-4/O2a01xhgHuFWy6yRCnytfb-QBmSJw1CL3Q5AOWkNx83xM16o8EmCStoNuAAlamYf2BHgEOGqaYd66pOkxATuDCJNqDTUCzMl72EVq3Qd8aZ5irgShyf11GuqiyfIoW-eEynb80CP8lSjia4PbzBIPR1D_w5UxtDayNv8LJCnGOs?purpose=inline')"></div><span class="service-hint">Showroom</span><div class="service-label"><span class="badge">⌂</span><strong data-i18n="siding">Vinyl Siding</strong></div></article>
+      <article class="service-card" data-service="soffit" tabindex="0"><div class="card-photo" style="background-image:url('https://images.openai.com/static-rsc-4/8LQas2SYkiAmpvU_ubbSpsim4TWh0MPoKo3nx0wpDxObbAw6YUy6WUAoF-Gj8c0qiGRxm8FnDPi4D8x5RsSt9TeDXWP7vWn-CfDbb34meBk7uUfybW8n1WeWQfpOYJVwIGhRa0HTmPSSAvfc3ALTqCOJBivevx3e2PpJNl4htw0?purpose=inline')"></div><span class="service-hint">Showroom</span><div class="service-label"><span class="badge">▰</span><strong data-i18n="soffit">Soffit</strong></div></article>
+      <article class="service-card" data-service="fascia" tabindex="0"><div class="card-photo" style="background-image:url('https://images.openai.com/static-rsc-4/q4T5AZcLxp7I98rY5CV3oQSuaD1dd_j2MRIqoraM20tvh6HlHHuam3vy-3_hEZuBS24wOiFXwcp0Lka3g-8MQQGsfzhUCLrwHxM8A30NpvVbyyzlO3gGpXPVOEVHO7Tjv3XhJT7xj-2KreGyOFax8kZA9TGwzjzK5Jf9F8Xa-Dg?purpose=inline')"></div><span class="service-hint">Showroom</span><div class="service-label"><span class="badge">▱</span><strong data-i18n="fascia">Fascia</strong></div></article>
+      <article class="service-card" data-service="hardie" tabindex="0"><div class="card-photo" style="background-image:url('https://images.openai.com/static-rsc-4/lhwiAyRVXEhl5pCOBnVYer_pQ9lRe3QGpobIPEwBYVwWU-Jwdb37GaHZWeu79l2p6kXs6zRjT1sVuaToBqs9VI0xRVP-bhZFcRSC2jo53kT7su4pSWM1cG7g6l8g25VBdAcKJvDUIs2bySmSGI76wG8Jd7xD7rNbuJlAfL1QMAE?purpose=inline')"></div><span class="service-hint">Showroom</span><div class="service-label"><span class="badge">▥</span><strong data-i18n="hardie">Hardie Board</strong></div></article>
+      <article class="service-card" data-service="cladding" tabindex="0"><div class="card-photo" style="background-image:url('https://images.openai.com/static-rsc-4/FMIKRlge11s6UYVUEpf66HXc7FcVKo-BdYzcTlBhqPitENLAuTU4M94fI6hOL6_nQk12pQscXrnybhWnDAvZWOuzgu0-VqTYLeV9P_2tGfD5ppnS0DehC4kcr_NvKFCP8oCoIIZ5uhXMx-5i2c1oXsYc831TY0Eub6884KGDkMX09mlH47Y2ky05S8fO7Vr9?purpose=inline')"></div><span class="service-hint">Showroom</span><div class="service-label"><span class="badge">▤</span><strong data-i18n="cladding">Cladding</strong></div></article>
+      <article class="service-card" data-service="roofing" tabindex="0"><div class="card-photo" style="background-image:url('https://images.openai.com/static-rsc-4/4vYNRoT43tDiJMuEYfg3BE2mxy_wqtUKcn7vgyd_YAoDU5wBgJf0wTjM4m__6uQ_ojp7A0QzTrSpfIB8Qs0ZT8PWOcC-4FNWeeSfx553Ekt2gsAPmMmrtrGpQRu6hinbiokL09YeshlfBNMeCTMHqER41NBtxjUfMeVKSzbkU3tPIFqf1Ovzu-UmNBUDVxy7?purpose=inline')"></div><span class="service-hint">Showroom</span><div class="service-label"><span class="badge">⌂</span><strong data-i18n="roofing">Roofing</strong></div></article>
     </div>
   </div>
 
@@ -1104,7 +1209,7 @@ const T = {
     heroEyebrow:"Protecting What Matters Most",
     heroTitle:"Exterior Solutions<br>Built for <span>Alberta Weather</span>",
     heroText:"From hailstorms to blue skies, we deliver premium exterior solutions that stand strong—year after year.",
-    siding:"Siding", soffit:"Soffit & Fascia", cladding:"Cladding", hardie:"Hardie Board", roofing:"Roofing",
+    siding:"Vinyl Siding", soffit:"Soffit", fascia:"Fascia", cladding:"Cladding", hardie:"Hardie Board", roofing:"Roofing",
     heroCta1:"Get an Estimate", heroCta2:"Our Services",
     trust1:"Storm-Ready", trust1Text:"Built to withstand Alberta’s harshest conditions.",
     trust2:"Insurance Claims", trust2Text:"We help make it easier and stress-free.",
@@ -1143,7 +1248,7 @@ const T = {
     heroEyebrow:"Protéger ce qui compte vraiment",
     heroTitle:"Solutions extérieures<br>conçues pour le <span>climat de l’Alberta</span>",
     heroText:"De la grêle au ciel bleu, nous livrons des solutions extérieures haut de gamme qui restent solides année après année.",
-    siding:"Revêtement", soffit:"Soffite & Fascia", cladding:"Cladding", hardie:"Hardie Board", roofing:"Toiture",
+    siding:"Revêtement vinyle", soffit:"Soffite", fascia:"Fascia", cladding:"Cladding", hardie:"Hardie Board", roofing:"Toiture",
     heroCta1:"Obtenir une soumission", heroCta2:"Voir nos services",
     trust1:"Prêt pour les tempêtes", trust1Text:"Conçu pour résister aux conditions difficiles de l’Alberta.",
     trust2:"Réclamations d’assurance", trust2Text:"On vous aide à simplifier le processus.",
@@ -1469,66 +1574,11 @@ document.getElementById("year").textContent = new Date().getFullYear();
 </div>
 
 
+
 <script>
-/* Services + Projects gallery modal */
+/* Approved showroom Services + Projects gallery modal */
 (function () {
-  const serviceGalleries = {
-    "siding": {
-        "type": "Service examples",
-        "title": "Siding / Vinyl Siding",
-        "text": "Vinyl siding examples: horizontal lap panels, exterior wall coverage, corners, trim details and residential siding finishes.",
-        "images": [
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vinyl-siding.jpg",
-            "https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?auto=format&fit=crop&w=1400&q=90",
-            "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=90",
-            "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=90"
-        ]
-    },
-    "soffit": {
-        "type": "Service examples",
-        "title": "Soffit & Fascia",
-        "text": "Soffit is the underside below the roof overhang. Fascia is the visible board/metal trim along the roof edge, often supporting gutters.",
-        "images": [
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eaves-lining.jpg",
-            "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1400&q=90",
-            "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=90",
-            "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1400&q=90"
-        ]
-    },
-    "cladding": {
-        "type": "Service examples",
-        "title": "Cladding / Architectural Panels",
-        "text": "Cladding examples: metal panels, modern feature walls, architectural exterior panels and detail areas around entrances or accent sections.",
-        "images": [
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Curvy%20metal%20facade%20%28Unsplash%29.jpg",
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Facade%20of%20metal%20plates.jpg",
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sinusplatfasad%20lund.jpg",
-            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=90"
-        ]
-    },
-    "hardie": {
-        "type": "Service examples",
-        "title": "Hardie Board / Fiber Cement",
-        "text": "Hardie Board / fiber cement examples: plank siding, board-and-batten style, trim details and durable fiber-cement exterior finishes.",
-        "images": [
-            "https://www.jameshardie.ca/_next/image?url=https%3A%2F%2Fdam.jameshardie.com%2Fassets%2Fjhi%2Fimage%2Fupload%2Ff_auto%2Cq_auto%2Fv1%2Fjameshardie%2FNA%2FHomeowner%2FProducts%2Fplank-lap-siding%2FHardie-Plank-Lap-Siding-HZ10%2FPlank_HZ10_SelectCedarmill.jpg&w=1200&q=80",
-            "https://www.jameshardie.ca/_next/image?url=https%3A%2F%2Fdam.jameshardie.com%2Fassets%2Fjhi%2Fimage%2Fupload%2Ff_auto%2Cq_auto%2Fv1%2Fjameshardie%2FNA%2FHomeowner%2FProducts%2Fpanel-vertical-siding%2FHardie-Panel-Vertical-Siding-HZ10%2FPanel_HZ10_Smooth.jpg&w=1200&q=80",
-            "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1400&q=90",
-            "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=90"
-        ]
-    },
-    "roofing": {
-        "type": "Service examples",
-        "title": "Roofing / Shingles",
-        "text": "Roofing examples: asphalt shingles, roofline details, shingle surfaces and storm-related roof replacement or repair work.",
-        "images": [
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ashphaslt%20Shingles%20Roof.jpg",
-            "https://commons.wikimedia.org/wiki/Special:Redirect/file/Wooden%20shingle%20roof%20close-up%20in%20Switzerland.jpg",
-            "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=90",
-            "https://images.unsplash.com/photo-1600607688066-890987f18a86?auto=format&fit=crop&w=1400&q=90"
-        ]
-    }
-};
+  const serviceGalleries = {"siding": {"type_en": "Approved showroom", "type_fr": "Showroom approuvé", "title_en": "Vinyl Siding", "title_fr": "Revêtement vinyle", "intro_en": "Vinyl siding is a clean, budget-friendly exterior option with many colors, profiles and accent styles. It is a strong choice when the goal is to refresh a home without moving into premium cladding costs.", "intro_fr": "Le revêtement vinyle est une option propre et économique avec plusieurs couleurs, profils et styles d’accent. C’est un bon choix pour rafraîchir l’extérieur d’une maison sans tomber dans les coûts d’un cladding premium.", "price_en": "Relative price: economical to mid-range", "price_fr": "Prix relatif : économique à moyen", "use_en": "Best for full exterior refreshes, budget-controlled renovations, garages, side walls and clean residential updates.", "use_fr": "Idéal pour refaire un extérieur complet, contrôler le budget, finir un garage, des murs latéraux ou moderniser une maison résidentielle.", "images": ["https://images.openai.com/static-rsc-4/O2a01xhgHuFWy6yRCnytfb-QBmSJw1CL3Q5AOWkNx83xM16o8EmCStoNuAAlamYf2BHgEOGqaYd66pOkxATuDCJNqDTUCzMl72EVq3Qd8aZ5irgShyf11GuqiyfIoW-eEynb80CP8lSjia4PbzBIPR1D_w5UxtDayNv8LJCnGOs?purpose=inline", "https://images.openai.com/static-rsc-4/wlh6vYsgTTXs2Kjn2ngFL1jq5Sh1e3bUVYrfZzRvzBct3rmQ5mHdt0xH5Y-Jmnve-t-gAiSXnjil-lwuaxq7Bqj0iB3hVoHRZ0LFFIncbYejsiRzHMxdkNA8uQQtLjyzqMUtcyWE2a5f_9AOCbIihCBkHYUahSisaF1sy3oyCZxcY9HJ12YVIhn-J_qCeX_P?purpose=inline", "https://images.openai.com/static-rsc-4/ONhYCk-aDVgDWTQTlh91quMbL1vQP7_vdghDhUcBu-0u8WfUTanWY0Pt7lexhHr1XwHG7dvf8xGtH7er_NUA9Y3zsiGczqvpIbo54-nqqAB6LITRzI8gDciDw20qQAWTeyN1adoDlmhOHM1jJgYduKsphT3W7jKGrP7tF6PVa7k?purpose=inline", "https://tse3.mm.bing.net/th/id/OIP.R_rFGcQVN2NvF8AQtgWvCAHaI6?r=0&pid=Api"], "types_en": [{"name": "Horizontal lap siding", "price": "Economical", "text": "Classic horizontal vinyl profile. Clean, simple and efficient for full-house coverage."}, {"name": "Board & batten vinyl", "price": "Mid-range", "text": "Vertical profile with a more modern/farmhouse look. Good for accents or full sections."}, {"name": "Shake / accent vinyl", "price": "Mid to premium", "text": "Used mostly in gables and architectural accents to create more texture and detail."}], "types_fr": [{"name": "Vinyle horizontal", "price": "Économique", "text": "Profil horizontal classique. Propre, simple et efficace pour couvrir une maison complète."}, {"name": "Vinyle board & batten", "price": "Moyen", "text": "Profil vertical avec un look plus moderne. Bon pour les accents ou certaines sections complètes."}, {"name": "Vinyle shake / accent", "price": "Moyen à premium", "text": "Souvent utilisé dans les pignons et accents pour ajouter de la texture et du détail."}]}, "soffit": {"type_en": "Approved showroom", "type_fr": "Showroom approuvé", "title_en": "Soffit", "title_fr": "Soffite", "intro_en": "Soffit is the finished underside below the roof overhang. It closes the eaves, protects the roof structure and can ventilate the attic when perforated panels are used.", "intro_fr": "Le soffite est la finition sous le débord de toit. Il ferme l’avant-toit, protège la structure et peut ventiler le grenier quand on utilise des panneaux perforés.", "price_en": "Relative price: economical to premium", "price_fr": "Prix relatif : économique à premium", "use_en": "Best for roof overhangs, porch ceilings, covered entrances and ventilation details.", "use_fr": "Idéal pour les débords de toit, plafonds de galerie, entrées couvertes et détails de ventilation.", "images": ["https://images.openai.com/static-rsc-4/8LQas2SYkiAmpvU_ubbSpsim4TWh0MPoKo3nx0wpDxObbAw6YUy6WUAoF-Gj8c0qiGRxm8FnDPi4D8x5RsSt9TeDXWP7vWn-CfDbb34meBk7uUfybW8n1WeWQfpOYJVwIGhRa0HTmPSSAvfc3ALTqCOJBivevx3e2PpJNl4htw0?purpose=inline", "https://images.openai.com/static-rsc-4/dgiWRGQGmWd9wuiolRH4jGBhAnGwCPTS8PwPex21UE2Rp736lhG4r3KOnGgHddw_TkbPjEAQHyW7YanzJ9-YwdGGFKpj52YiFEejUPpIdF0rs0Jv_7rUzB3ckdW-idSx2LUug91rl_fnumrxCXYKSMr8W_NWd5OxDX-uAAO8YLE?purpose=inline", "https://tse2.mm.bing.net/th/id/OIP.nhlqrQqrN4aWcrXMYgO1pwHaLH?pid=Api", "https://images.openai.com/static-rsc-4/NgLc5J-CZd7YMbN_LqD10th2mr20Keb-VSzoKEzOwuFienErzbus_eLBqxWyo1pWC5yGqWTb1hv_IpDs_KRiBfvIzNQFqnLUglyd3ZbFCf6fkThUyuJy3cJAhS6JW58AkExDfT--oIbFpgW7RJrkaORvM-9uatxFmyaZqq_T7b4?purpose=inline"], "types_en": [{"name": "Vented aluminum soffit", "price": "Best value", "text": "Most common practical option. Durable, clean and helps attic airflow."}, {"name": "Solid aluminum soffit", "price": "Mid-range", "text": "Used where ventilation is not required. Gives a clean finished underside."}, {"name": "Wood / wood-look soffit", "price": "Premium", "text": "Warmer high-end look. Great for feature overhangs and modern entrances."}], "types_fr": [{"name": "Soffite aluminium ventilé", "price": "Meilleur choix", "text": "Option pratique la plus courante. Durable, propre et aide la ventilation du grenier."}, {"name": "Soffite aluminium plein", "price": "Moyen", "text": "Utilisé où la ventilation n’est pas nécessaire. Donne une finition très propre."}, {"name": "Soffite bois / effet bois", "price": "Premium", "text": "Look plus chaud et haut de gamme. Excellent pour les entrées et débords visibles."}]}, "fascia": {"type_en": "Approved showroom", "type_fr": "Showroom approuvé", "title_en": "Fascia", "title_fr": "Fascia", "intro_en": "Fascia is the vertical finish along the roof edge. It protects the roofline, creates a sharp finished look and visually ties the soffit, gutters and exterior together.", "intro_fr": "Le fascia est la finition verticale au bord du toit. Il protège la ligne de toiture, donne un look propre et relie visuellement le soffite, les gouttières et l’extérieur.", "price_en": "Relative price: economical to premium", "price_fr": "Prix relatif : économique à premium", "use_en": "Best for roof edges, gutter lines, trim replacement, storm repairs and clean exterior finishing.", "use_fr": "Idéal pour les bords de toit, lignes de gouttières, remplacement de trim, réparations après tempête et finition extérieure propre.", "images": ["https://images.openai.com/static-rsc-4/q4T5AZcLxp7I98rY5CV3oQSuaD1dd_j2MRIqoraM20tvh6HlHHuam3vy-3_hEZuBS24wOiFXwcp0Lka3g-8MQQGsfzhUCLrwHxM8A30NpvVbyyzlO3gGpXPVOEVHO7Tjv3XhJT7xj-2KreGyOFax8kZA9TGwzjzK5Jf9F8Xa-Dg?purpose=inline", "https://images.openai.com/static-rsc-4/JVERwxncEMa-nAcd51b-HuPDvftdw0rVmbX4s_7Alarb7p_BGoFEQAe0_ESxUMQBe76ygDNA97UHwXGMsCU7BRr1SNhETg9egmfMkyfkKZZXQRowly5KyH3YKBurvtoKRQwqAy_fji2gDCEtu9yjEaeFycXLY9r6UhyW_HFnlTs?purpose=inline", "https://images.openai.com/static-rsc-4/GrZHsaeyXUCwkw0P7AsBni77jjbNjJ-U4ujnQBDCP2Ubp5MgUW1iEJu-nsV6dcHK8JYM-CdTK1X2TgU8PhYxkcniHxlCuvmAv9x-I-glKJhhb5mvJ6ElvodIp0LDT7wV5cTsgxQbP6yT5CmDOJUS-qqqfrZLEZMB3TswT98frIw?purpose=inline", "https://images.openai.com/static-rsc-4/zyW-EpDp0yrI-oKdWOKxzv7cVi3IhyJM03ELGyVFBiP1a2_GNvHxyV7xLKdLhXNDaHddsFsMsYogzmz8bKz82CjOcf8-HxINpvyx95Nc6UZGxmO1WvPOuScGS---_tg7a0Z1F3Wy2T3w05STSNzFQKXLOe6vY24xYiyBAhCNhcY?purpose=inline"], "types_en": [{"name": "Aluminum fascia", "price": "Best value", "text": "Clean, durable and low-maintenance. Strong practical choice for Alberta homes."}, {"name": "Painted wood fascia", "price": "Economical upfront", "text": "Traditional look. Can be cheaper at first but needs maintenance and protection."}, {"name": "Premium metal / composite fascia", "price": "Premium", "text": "Modern, crisp finish for high-end rooflines and contemporary homes."}], "types_fr": [{"name": "Fascia aluminium", "price": "Meilleur choix", "text": "Propre, durable et faible entretien. Très bon choix pratique pour les maisons en Alberta."}, {"name": "Fascia bois peint", "price": "Économique au départ", "text": "Look traditionnel. Peut coûter moins au départ, mais demande plus d’entretien."}, {"name": "Fascia métal / composite premium", "price": "Premium", "text": "Finition moderne et nette pour les toitures haut de gamme et maisons contemporaines."}]}, "hardie": {"type_en": "Approved showroom", "type_fr": "Showroom approuvé", "title_en": "Hardie Board / Hardie Panel", "title_fr": "Hardie Board / Hardie Panel", "intro_en": "Hardie Board and Hardie Panel are premium fiber-cement style exterior products for clients who want a stronger, more architectural finish than standard vinyl.", "intro_fr": "Hardie Board et Hardie Panel sont des produits extérieurs premium de style fibre-ciment pour les clients qui veulent une finition plus solide et plus architecturale que le vinyle standard.", "price_en": "Relative price: premium", "price_fr": "Prix relatif : premium", "use_en": "Best for full exterior upgrades, feature walls, board-and-batten styles, gables and premium residential finishes.", "use_fr": "Idéal pour les rénovations extérieures complètes, murs accent, style board-and-batten, pignons et finitions résidentielles premium.", "images": ["https://images.openai.com/static-rsc-4/lhwiAyRVXEhl5pCOBnVYer_pQ9lRe3QGpobIPEwBYVwWU-Jwdb37GaHZWeu79l2p6kXs6zRjT1sVuaToBqs9VI0xRVP-bhZFcRSC2jo53kT7su4pSWM1cG7g6l8g25VBdAcKJvDUIs2bySmSGI76wG8Jd7xD7rNbuJlAfL1QMAE?purpose=inline", "https://tse3.mm.bing.net/th/id/OIP.RSWzmjghioBIFYDWVo1QywHaIb?pid=Api", "https://images.openai.com/static-rsc-4/H_OyAHMnzaafXTfug7wcaPnecrZXu8X8KZ-Wv979VB4YQ5da0ke-erlWl8H4iaq135WewrbBLCAmBckn5mnDMKyAyivPqK83Zg2hsK-Z7PKxG5Nps6aTC2RMLnTbP4L_LR5QwCXCy6yYsRS3pCjxlOAWqId_ymwT74FlPPnVLO4?purpose=inline", "https://images.openai.com/static-rsc-4/Zfulv30Uw32jdjzm8fTZfrvS3OSHjcNb18VWzNA3SBnVIhx0eKlesRoT3gB11gtROfB7YDz78GxAyIFQA3hJvDhIa1x6ZexmmalAdCYqPPSJgLZeooKjiDR6iEVad-XIs_qWqiGGQQVNfqkxky0CbMf_gti2Li3ttsRGhlcM-gg?purpose=inline"], "types_en": [{"name": "HardiePlank horizontal", "price": "Premium", "text": "Classic horizontal board look with a stronger, more high-end feel than vinyl."}, {"name": "HardiePanel vertical", "price": "Premium", "text": "Modern vertical panel look. Excellent for board-and-batten and architectural walls."}, {"name": "HardieShingle / shake", "price": "Premium +", "text": "Used for gables and accents when the client wants more texture and character."}], "types_fr": [{"name": "HardiePlank horizontal", "price": "Premium", "text": "Look classique de planches horizontales avec une impression plus solide et haut de gamme que le vinyle."}, {"name": "HardiePanel vertical", "price": "Premium", "text": "Look moderne en panneaux verticaux. Excellent pour board-and-batten et murs architecturaux."}, {"name": "HardieShingle / shake", "price": "Premium +", "text": "Utilisé dans les pignons et accents pour ajouter de la texture et du caractère."}]}, "cladding": {"type_en": "Approved showroom", "type_fr": "Showroom approuvé", "title_en": "Cladding", "title_fr": "Cladding", "intro_en": "Cladding is a premium exterior finish used to create a modern architectural look. It can transform an entrance, garage, wall accent or complete façade.", "intro_fr": "Le cladding est une finition extérieure premium utilisée pour créer un look moderne et architectural. Il peut transformer une entrée, un garage, un mur accent ou une façade complète.", "price_en": "Relative price: premium to premium +", "price_fr": "Prix relatif : premium à premium +", "use_en": "Best for modern façades, entrances, columns, garage faces, accent walls and high-end exterior details.", "use_fr": "Idéal pour façades modernes, entrées, colonnes, devantures de garage, murs accent et détails extérieurs haut de gamme.", "images": ["https://images.openai.com/static-rsc-4/FMIKRlge11s6UYVUEpf66HXc7FcVKo-BdYzcTlBhqPitENLAuTU4M94fI6hOL6_nQk12pQscXrnybhWnDAvZWOuzgu0-VqTYLeV9P_2tGfD5ppnS0DehC4kcr_NvKFCP8oCoIIZ5uhXMx-5i2c1oXsYc831TY0Eub6884KGDkMX09mlH47Y2ky05S8fO7Vr9?purpose=inline", "https://images.openai.com/static-rsc-4/hoUlEqAUX5lTObA0zBgcb2YhpyWxxu5o6scKVAHVInSDdjDGwnkpauVhzhsQEfxazFzfPWUyDH85tj3890GNbnxckNXVYgxHFqVkN8nVvwiHnARMyoNJajC_40_Cpeo4zaOZblIcRq7Q4CUn9GEXTg6NQtdm2YMkFVWAD79Buik03hwewp_4jIQj1IkQLuYQ?purpose=inline", "https://images.openai.com/static-rsc-4/7IaLVf0MbEHO7gpi9FM2LjcW6laQ5DvwOaDQD9puw30WzGxvdoB9VAkUHYB4UgDk2fnQiTdUvC2NLqkQfeassj9PGiDcawKeD3RY_VQt3MGLj_GMl2ucqF-JK2siYDgrptMnb5BIyyuW2mAN5m3vQ7DGovimC3Kd8wJ7Q7U861Y?purpose=inline", "https://tse1.mm.bing.net/th/id/OIP.hMYbeg25jcQdlhIRIVM2SwHaE8?cb=thfc1&pid=Api"], "types_en": [{"name": "Metal cladding", "price": "Premium", "text": "Clean modern lines with strong architectural impact."}, {"name": "ACM / panel cladding", "price": "Premium +", "text": "Flat panels with crisp reveals. Great for contemporary and commercial-inspired looks."}, {"name": "Wood-look cladding", "price": "Premium", "text": "Warmer look with less maintenance than real wood."}], "types_fr": [{"name": "Cladding métallique", "price": "Premium", "text": "Lignes modernes et propres avec un fort impact architectural."}, {"name": "ACM / panneaux architecturaux", "price": "Premium +", "text": "Panneaux plats avec joints nets. Excellent pour un look contemporain ou commercial."}, {"name": "Cladding effet bois", "price": "Premium", "text": "Look plus chaud avec moins d’entretien que le vrai bois."}]}, "roofing": {"type_en": "Approved showroom", "type_fr": "Showroom approuvé", "title_en": "Roofing", "title_fr": "Toiture", "intro_en": "Asphalt shingle roofing is a popular residential option that protects against water, snow, wind and temperature changes. Architectural shingles create a thicker, more premium finished look.", "intro_fr": "La toiture en bardeaux d’asphalte est une option résidentielle populaire qui protège contre l’eau, la neige, le vent et les variations de température. Les bardeaux architecturaux donnent un look plus épais et plus premium.", "price_en": "Relative price: mid-range to premium", "price_fr": "Prix relatif : moyen à premium", "use_en": "Best for residential roof replacements, storm repairs, architectural shingle upgrades and impact-resistant systems.", "use_fr": "Idéal pour remplacement de toiture résidentielle, réparations après tempête, upgrade en bardeaux architecturaux et systèmes résistants aux impacts.", "images": ["https://images.openai.com/static-rsc-4/4vYNRoT43tDiJMuEYfg3BE2mxy_wqtUKcn7vgyd_YAoDU5wBgJf0wTjM4m__6uQ_ojp7A0QzTrSpfIB8Qs0ZT8PWOcC-4FNWeeSfx553Ekt2gsAPmMmrtrGpQRu6hinbiokL09YeshlfBNMeCTMHqER41NBtxjUfMeVKSzbkU3tPIFqf1Ovzu-UmNBUDVxy7?purpose=inline", "https://images.openai.com/static-rsc-4/gQS7rhcfzYI3FLs0vkijupGJWz0ukvqrWJkWcq42qy3rOyjrJ9jUZSp1AjEk9nqgGzMakw4afJB3zeQV01JtwodA3IYEciBkqeqZWQ7XETeyYcO8QkitRrDOFkI7L751e-W-bqnlTR_k6fKkk29YfYUfRBZyNgA2hDWXVh_uc37nUjJp5x2dUSeliE0w7vUr?purpose=inline", "https://images.openai.com/static-rsc-4/EF8EQ8i6-uQOVhsE8xDxmBv1Pm8kKVSun_o5Ht1mJMmQvtFiMa56d9pklpBOAFKxQT6zHzoYaHufM28g9csvdlA0F3J8TF59r1-tReypYacH5YWOdoK4lMwNsyd9ask5aPCfAhqo0uCeNzyUzRSQ3leLckjEt075k4L9aowYrFRwPWEkbAHyl8Zp2Az37Ps0?purpose=inline", "https://tse4.mm.bing.net/th/id/OIP.4qCEudhclbH-2hsTuSCoGAHaD5?r=0&pid=Api"], "types_en": [{"name": "Architectural shingles", "price": "Mid to premium", "text": "Thicker visual profile and better curb appeal than flat 3-tab shingles."}, {"name": "3-tab shingles", "price": "Economical", "text": "Simple flat look. Lower cost, less premium appearance."}, {"name": "Impact-resistant shingles", "price": "Premium", "text": "Better option for hail and wind exposure in Alberta."}], "types_fr": [{"name": "Bardeaux architecturaux", "price": "Moyen à premium", "text": "Look plus épais et meilleur rendu visuel que les bardeaux 3-tab plats."}, {"name": "Bardeaux 3-tab", "price": "Économique", "text": "Look simple et plat. Moins cher, mais moins premium."}, {"name": "Bardeaux résistants aux impacts", "price": "Premium", "text": "Meilleure option pour l’exposition à la grêle et au vent en Alberta."}]}};
 
   const modal = document.getElementById("galleryModal");
   const image = document.getElementById("galleryImage");
@@ -1542,9 +1592,49 @@ document.getElementById("year").textContent = new Date().getFullYear();
   const next = document.getElementById("galleryNext");
   const stage = document.getElementById("galleryStage");
 
-  let current = { images: [], title: "", text: "", type: "" };
+  let current = { images: [], title_en: "", title_fr: "", intro_en: "", intro_fr: "", type_en: "", type_fr: "" };
   let index = 0;
   let startX = 0;
+
+  function lang() {
+    return document.documentElement.lang === "fr" ? "fr" : "en";
+  }
+
+  function tr(obj, key) {
+    return obj[key + "_" + lang()] || obj[key + "_en"] || "";
+  }
+
+  function safe(value) {
+    return String(value || "").replace(/[&<>"']/g, ch => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
+    }[ch]));
+  }
+
+  function showroomDetails(gallery) {
+    if (!gallery.types_en && !gallery.types_fr) {
+      return `<div class="showroom-intro"><p>${safe(gallery.text || "")}</p></div>`;
+    }
+
+    const types = gallery["types_" + lang()] || gallery.types_en || [];
+    return `
+      <div class="showroom-intro">
+        <p>${safe(tr(gallery, "intro"))}</p>
+        <div class="showroom-tags">
+          <span>${safe(tr(gallery, "price"))}</span>
+          <span>${safe(tr(gallery, "use"))}</span>
+        </div>
+      </div>
+      <div class="showroom-grid">
+        ${types.map(item => `
+          <article class="showroom-card">
+            <small>${safe(item.price)}</small>
+            <strong>${safe(item.name)}</strong>
+            <p>${safe(item.text)}</p>
+          </article>
+        `).join("")}
+      </div>
+    `;
+  }
 
   function openGallery(gallery) {
     if (!modal || !gallery || !gallery.images || !gallery.images.length) return;
@@ -1568,9 +1658,9 @@ document.getElementById("year").textContent = new Date().getFullYear();
     if (index < 0) index = total - 1;
     if (index >= total) index = 0;
     image.src = current.images[index];
-    title.textContent = current.title || "Gallery";
-    type.textContent = current.type || "Gallery";
-    text.textContent = current.text || "";
+    title.textContent = tr(current, "title") || current.title || "Gallery";
+    type.textContent = tr(current, "type") || current.type || "Gallery";
+    text.innerHTML = showroomDetails(current);
     counter.textContent = (index + 1) + " / " + total;
     thumbs.innerHTML = current.images.map((src, i) =>
       `<button class="gallery-thumb ${i === index ? "active" : ""}" style="background-image:url('${src.replace(/'/g, "%27")}')" type="button" data-i="${i}" aria-label="Image ${i + 1}"></button>`
@@ -1587,8 +1677,10 @@ document.getElementById("year").textContent = new Date().getFullYear();
     const images = (card.dataset.images || "").split("|").filter(Boolean);
     if (!images.length) return;
     openGallery({
-      type: "Project album",
-      title: card.dataset.title || card.textContent.trim() || "Project",
+      type_en: "Project album",
+      type_fr: "Album de projet",
+      title_en: card.dataset.title || card.textContent.trim() || "Project",
+      title_fr: card.dataset.title || card.textContent.trim() || "Projet",
       text: card.dataset.text || "Project photo album.",
       images
     });
@@ -1631,6 +1723,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
   window.HailiteGallery = { openGallery };
 })();
 </script>
+
 
 </body>
 </html>
