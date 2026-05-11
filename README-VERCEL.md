@@ -117,3 +117,10 @@ Each service opens a showroom-style gallery with:
 - product type descriptions
 - relative price level
 - practical Alberta use case
+
+
+## Hardie image + tips update
+
+This version fixes the Hardie Board service card image, adds the showroom explanation text, and completes the Tips & Updates section with exterior maintenance guidance.
+
+The public service showroom explains product categories only. It does not claim to show the full catalog of available colors, materials or profiles.

@@ -881,11 +881,6 @@ h1,h2,h3{margin:0;font-family:"Barlow Condensed", Inter, sans-serif}
 
 
 /* Clearer service product photos */
-.service-card[data-service="siding"] .card-photo { background-image: url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Vinyl-siding.jpg') !important; }
-.service-card[data-service="soffit"] .card-photo { background-image: url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Eaves-lining.jpg') !important; }
-.service-card[data-service="cladding"] .card-photo { background-image: url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Curvy%20metal%20facade%20%28Unsplash%29.jpg') !important; }
-.service-card[data-service="hardie"] .card-photo { background-image: url('https://www.jameshardie.ca/_next/image?url=https%3A%2F%2Fdam.jameshardie.com%2Fassets%2Fjhi%2Fimage%2Fupload%2Ff_auto%2Cq_auto%2Fv1%2Fjameshardie%2FNA%2FHomeowner%2FProducts%2Fplank-lap-siding%2FHardie-Plank-Lap-Siding-HZ10%2FPlank_HZ10_SelectCedarmill.jpg&w=1200&q=80') !important; }
-.service-card[data-service="roofing"] .card-photo { background-image: url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Ashphaslt%20Shingles%20Roof.jpg') !important; }
 
 .service-card .service-hint {
   position: absolute;
@@ -1006,6 +1001,53 @@ h1,h2,h3{margin:0;font-family:"Barlow Condensed", Inter, sans-serif}
   .showroom-grid { grid-template-columns: 1fr; }
 }
 
+
+/* Hardie Board showroom image fix */
+.service-card[data-service="hardie"] .card-photo {
+  background-image: url('https://tse3.mm.bing.net/th/id/OIP.RSWzmjghioBIFYDWVo1QywHaIb?pid=Api') !important;
+  background-color: rgba(255,255,255,.08) !important;
+}
+
+
+/* Showroom explanation and completed tips */
+.showroom-note-card {
+  grid-column: 1 / -1;
+  border: 1px solid rgba(248,212,139,.22);
+  background:
+    linear-gradient(135deg, rgba(248,212,139,.10), rgba(24,144,255,.07)),
+    rgba(255,255,255,.035);
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+}
+.showroom-note-card strong {
+  display: block;
+  color: var(--gold2);
+  font-size: .86rem;
+  font-weight: 950;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+.showroom-note-card p {
+  margin: 0;
+  color: #c3cfda;
+  line-height: 1.55;
+  font-size: .96rem;
+}
+.blog-grid {
+  grid-template-columns: repeat(4, 1fr) !important;
+}
+.blog-card p {
+  line-height: 1.55;
+}
+@media (max-width: 1180px) {
+  .blog-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 720px) {
+  .blog-grid { grid-template-columns: 1fr !important; }
+}
+
 </style>
 </head>
 <body>
@@ -1062,7 +1104,8 @@ h1,h2,h3{margin:0;font-family:"Barlow Condensed", Inter, sans-serif}
         <p data-i18n="heroText">From hailstorms to blue skies, we deliver premium exterior solutions that stand strong—year after year.</p>
         <div class="service-line">
           <span data-i18n="siding">Siding</span>
-          <span data-i18n="soffit">Soffit & Fascia</span>
+          <span data-i18n="soffit">Soffit</span>
+          <span data-i18n="fascia">Fascia</span>
           <span data-i18n="cladding">Cladding</span>
           <span data-i18n="hardie">Hardie Board</span>
           <span data-i18n="roofing">Roofing</span>
@@ -1090,10 +1133,15 @@ h1,h2,h3{margin:0;font-family:"Barlow Condensed", Inter, sans-serif}
     <div class="side-title"><small data-i18n="servicesSmall">Our Premium</small><h2 data-i18n="servicesTitle">Services</h2><span class="bar"></span></div>
     
     <div class="services">
+
+      <div class="showroom-note-card">
+        <strong data-i18n="showroomNoteTitle">Product Showroom</strong>
+        <p data-i18n="showroomNoteText">These examples are here to help you understand what each product is and how it can finish a home. They are not the full catalog. Available colors, profiles and materials are much broader, and final choices are selected during the estimate.</p>
+      </div>
       <article class="service-card" data-service="siding" tabindex="0"><div class="card-photo" style="background-image:url('https://images.openai.com/static-rsc-4/O2a01xhgHuFWy6yRCnytfb-QBmSJw1CL3Q5AOWkNx83xM16o8EmCStoNuAAlamYf2BHgEOGqaYd66pOkxATuDCJNqDTUCzMl72EVq3Qd8aZ5irgShyf11GuqiyfIoW-eEynb80CP8lSjia4PbzBIPR1D_w5UxtDayNv8LJCnGOs?purpose=inline')"></div><span class="service-hint">Showroom</span><div class="service-label"><span class="badge">⌂</span><strong data-i18n="siding">Vinyl Siding</strong></div></article>
       <article class="service-card" data-service="soffit" tabindex="0"><div class="card-photo" style="background-image:url('https://images.openai.com/static-rsc-4/8LQas2SYkiAmpvU_ubbSpsim4TWh0MPoKo3nx0wpDxObbAw6YUy6WUAoF-Gj8c0qiGRxm8FnDPi4D8x5RsSt9TeDXWP7vWn-CfDbb34meBk7uUfybW8n1WeWQfpOYJVwIGhRa0HTmPSSAvfc3ALTqCOJBivevx3e2PpJNl4htw0?purpose=inline')"></div><span class="service-hint">Showroom</span><div class="service-label"><span class="badge">▰</span><strong data-i18n="soffit">Soffit</strong></div></article>
       <article class="service-card" data-service="fascia" tabindex="0"><div class="card-photo" style="background-image:url('https://images.openai.com/static-rsc-4/q4T5AZcLxp7I98rY5CV3oQSuaD1dd_j2MRIqoraM20tvh6HlHHuam3vy-3_hEZuBS24wOiFXwcp0Lka3g-8MQQGsfzhUCLrwHxM8A30NpvVbyyzlO3gGpXPVOEVHO7Tjv3XhJT7xj-2KreGyOFax8kZA9TGwzjzK5Jf9F8Xa-Dg?purpose=inline')"></div><span class="service-hint">Showroom</span><div class="service-label"><span class="badge">▱</span><strong data-i18n="fascia">Fascia</strong></div></article>
-      <article class="service-card" data-service="hardie" tabindex="0"><div class="card-photo" style="background-image:url('https://images.openai.com/static-rsc-4/lhwiAyRVXEhl5pCOBnVYer_pQ9lRe3QGpobIPEwBYVwWU-Jwdb37GaHZWeu79l2p6kXs6zRjT1sVuaToBqs9VI0xRVP-bhZFcRSC2jo53kT7su4pSWM1cG7g6l8g25VBdAcKJvDUIs2bySmSGI76wG8Jd7xD7rNbuJlAfL1QMAE?purpose=inline')"></div><span class="service-hint">Showroom</span><div class="service-label"><span class="badge">▥</span><strong data-i18n="hardie">Hardie Board</strong></div></article>
+      <article class="service-card" data-service="hardie" tabindex="0"><div class="card-photo" style="background-image:url('https://tse3.mm.bing.net/th/id/OIP.RSWzmjghioBIFYDWVo1QywHaIb?pid=Api')"></div><span class="service-hint">Showroom</span><div class="service-label"><span class="badge">▥</span><strong data-i18n="hardie">Hardie Board</strong></div></article>
       <article class="service-card" data-service="cladding" tabindex="0"><div class="card-photo" style="background-image:url('https://images.openai.com/static-rsc-4/FMIKRlge11s6UYVUEpf66HXc7FcVKo-BdYzcTlBhqPitENLAuTU4M94fI6hOL6_nQk12pQscXrnybhWnDAvZWOuzgu0-VqTYLeV9P_2tGfD5ppnS0DehC4kcr_NvKFCP8oCoIIZ5uhXMx-5i2c1oXsYc831TY0Eub6884KGDkMX09mlH47Y2ky05S8fO7Vr9?purpose=inline')"></div><span class="service-hint">Showroom</span><div class="service-label"><span class="badge">▤</span><strong data-i18n="cladding">Cladding</strong></div></article>
       <article class="service-card" data-service="roofing" tabindex="0"><div class="card-photo" style="background-image:url('https://images.openai.com/static-rsc-4/4vYNRoT43tDiJMuEYfg3BE2mxy_wqtUKcn7vgyd_YAoDU5wBgJf0wTjM4m__6uQ_ojp7A0QzTrSpfIB8Qs0ZT8PWOcC-4FNWeeSfx553Ekt2gsAPmMmrtrGpQRu6hinbiokL09YeshlfBNMeCTMHqER41NBtxjUfMeVKSzbkU3tPIFqf1Ovzu-UmNBUDVxy7?purpose=inline')"></div><span class="service-hint">Showroom</span><div class="service-label"><span class="badge">⌂</span><strong data-i18n="roofing">Roofing</strong></div></article>
     </div>
@@ -1162,21 +1210,27 @@ h1,h2,h3{margin:0;font-family:"Barlow Condensed", Inter, sans-serif}
 
   <div class="container row" id="blog">
     <div class="side-title"><small data-i18n="blogSmall">Tips &</small><h2 data-i18n="blogTitle">Updates</h2><span class="bar"></span></div>
+    
     <div class="blog-grid">
       <article class="blog-card">
-        <small data-i18n="blog1Cat">Hail Damage</small>
-        <strong data-i18n="blog1Title">What to check after a hailstorm</strong>
-        <p data-i18n="blog1Text">A simple homeowner checklist for siding, fascia, soffit and roofing after severe weather.</p>
+        <small data-i18n="blog1Cat">After Hail</small>
+        <strong data-i18n="blog1Title">Quick exterior check after a storm</strong>
+        <p data-i18n="blog1Text">Walk around the home and look for cracked siding, loose fascia, dented metal, damaged vents, missing shingles and water entry points. Small damage is easier to repair before it spreads.</p>
       </article>
       <article class="blog-card">
-        <small data-i18n="blog2Cat">Materials</small>
-        <strong data-i18n="blog2Title">Siding vs. Hardie Board</strong>
-        <p data-i18n="blog2Text">A quick guide to choosing the right exterior system for Alberta conditions.</p>
+        <small data-i18n="blog2Cat">Siding Care</small>
+        <strong data-i18n="blog2Title">Keeping siding clean and sharp</strong>
+        <p data-i18n="blog2Text">Rinse dust and dirt with low pressure, keep BBQ heat away from vinyl, trim branches touching the wall, and check corners and trims after strong wind or hail.</p>
       </article>
       <article class="blog-card">
-        <small data-i18n="blog3Cat">Maintenance</small>
-        <strong data-i18n="blog3Title">How to protect your exterior</strong>
-        <p data-i18n="blog3Text">Seasonal maintenance ideas to help your exterior last longer and look better.</p>
+        <small data-i18n="blog3Cat">Exterior Maintenance</small>
+        <strong data-i18n="blog3Title">Protecting soffit, fascia and cladding</strong>
+        <p data-i18n="blog3Text">Keep gutters clear, watch for sagging fascia, confirm soffit vents stay open, and inspect panel joints. Good water management protects the whole exterior system.</p>
+      </article>
+      <article class="blog-card">
+        <small data-i18n="blog4Cat">Material Choice</small>
+        <strong data-i18n="blog4Title">Choosing the right finish</strong>
+        <p data-i18n="blog4Text">Vinyl is budget-friendly, Hardie gives a stronger premium look, cladding creates modern architectural accents, and roofing upgrades should match Alberta wind and hail exposure.</p>
       </article>
     </div>
   </div>
@@ -1215,7 +1269,7 @@ const T = {
     trust2:"Insurance Claims", trust2Text:"We help make it easier and stress-free.",
     trust3:"Fast & Reliable", trust3Text:"On time, on budget, every time.",
     trust4:"Warrantied Work", trust4Text:"Premium materials and workmanship guaranteed.",
-    servicesSmall:"Our Premium", servicesTitle:"Services",
+    servicesSmall:"Our Premium", servicesTitle:"Services", showroomNoteTitle:"Product Showroom", showroomNoteText:"These examples are here to help you understand what each product is and how it can finish a home. They are not the full catalog. Available colors, profiles and materials are much broader, and final choices are selected during the estimate.",
     aboutSmall:"About", aboutTitle:"Us",
     aboutHeadline:"A new company with real trade experience behind every detail.",
     aboutText:"Hailite Xteriors is a new exterior company built on years of hands-on experience in siding, soffit, fascia, cladding, Hardie Board and roofing support. We may be new as a company, but the workmanship, jobsite discipline and exterior knowledge behind the name come from real field experience. Our goal is simple: protect your home, make it look sharp, and build exteriors that can stand up to Alberta weather.",
@@ -1233,9 +1287,10 @@ const T = {
     review2Title:"Helped after hail damage", review2Text:"They explained the options clearly and helped us move forward with confidence.", review2Meta:"Airdrie project",
     review3Title:"Great attention to detail", review3Text:"Siding, soffit and fascia were finished cleanly, with strong attention to the details.", review3Meta:"Cochrane exterior upgrade",
     blogSmall:"Tips &", blogTitle:"Updates",
-    blog1Cat:"Hail Damage", blog1Title:"What to check after a hailstorm", blog1Text:"A simple homeowner checklist for siding, fascia, soffit and roofing after severe weather.",
-    blog2Cat:"Materials", blog2Title:"Siding vs. Hardie Board", blog2Text:"A quick guide to choosing the right exterior system for Alberta conditions.",
-    blog3Cat:"Maintenance", blog3Title:"How to protect your exterior", blog3Text:"Seasonal maintenance ideas to help your exterior last longer and look better.",
+    blog1Cat:"After Hail", blog1Title:"Quick exterior check after a storm", blog1Text:"Walk around the home and look for cracked siding, loose fascia, dented metal, damaged vents, missing shingles and water entry points. Small damage is easier to repair before it spreads.",
+    blog2Cat:"Siding Care", blog2Title:"Keeping siding clean and sharp", blog2Text:"Rinse dust and dirt with low pressure, keep BBQ heat away from vinyl, trim branches touching the wall, and check corners and trims after strong wind or hail.",
+    blog3Cat:"Exterior Maintenance", blog3Title:"Protecting soffit, fascia and cladding", blog3Text:"Keep gutters clear, watch for sagging fascia, confirm soffit vents stay open, and inspect panel joints. Good water management protects the whole exterior system.",
+    blog4Cat:"Material Choice", blog4Title:"Choosing the right finish", blog4Text:"Vinyl is budget-friendly, Hardie gives a stronger premium look, cladding creates modern architectural accents, and roofing upgrades should match Alberta wind and hail exposure.",
     contactSmall:"Let's Protect", contactTitle:"Your Home",
     hours:"Mon–Fri, 8 AM–6 PM", hoursText:"We're here when you need us.",
     finalCta:"Get Your Free Estimate Today",
@@ -1254,7 +1309,7 @@ const T = {
     trust2:"Réclamations d’assurance", trust2Text:"On vous aide à simplifier le processus.",
     trust3:"Rapide & fiable", trust3Text:"À temps, bien organisé, sans détour.",
     trust4:"Travail garanti", trust4Text:"Matériaux premium et installation professionnelle.",
-    servicesSmall:"Nos services", servicesTitle:"Premium",
+    servicesSmall:"Nos services", servicesTitle:"Premium", showroomNoteTitle:"Showroom de produits", showroomNoteText:"Ces exemples servent à aider le client à comprendre c’est quoi chaque produit et la finition que ça peut donner sur une maison. Ce n’est pas le catalogue complet. Les couleurs, profils et matériaux disponibles sont beaucoup plus larges, et les choix finaux se font pendant la soumission.",
     aboutSmall:"À propos", aboutTitle:"Nous",
     aboutHeadline:"Une nouvelle compagnie avec une vraie expérience de métier derrière chaque détail.",
     aboutText:"Hailite Xteriors est une nouvelle compagnie extérieure bâtie sur plusieurs années d’expérience de terrain en revêtement, soffite, fascia, cladding, Hardie Board et support en toiture. La compagnie est nouvelle, mais le savoir-faire, la discipline de chantier et la qualité d’installation viennent d’une vraie expérience de travail. Notre objectif est simple : protéger votre maison, lui donner une finition solide et propre, et construire des extérieurs capables de résister au climat de l’Alberta.",
@@ -1272,9 +1327,10 @@ const T = {
     review2Title:"Aide après des dommages de grêle", review2Text:"Ils ont expliqué les options clairement et nous ont aidés à avancer avec confiance.", review2Meta:"Projet à Airdrie",
     review3Title:"Très belle attention aux détails", review3Text:"Le revêtement, le soffite et le fascia ont été finis proprement, avec beaucoup de précision.", review3Meta:"Projet extérieur à Cochrane",
     blogSmall:"Conseils &", blogTitle:"Nouvelles",
-    blog1Cat:"Dommages de grêle", blog1Title:"Quoi vérifier après une tempête de grêle", blog1Text:"Une liste simple pour vérifier revêtement, fascia, soffite et toiture après une grosse tempête.",
-    blog2Cat:"Matériaux", blog2Title:"Revêtement ou Hardie Board", blog2Text:"Un guide rapide pour choisir le bon système extérieur pour le climat de l’Alberta.",
-    blog3Cat:"Entretien", blog3Title:"Comment protéger votre extérieur", blog3Text:"Des idées d’entretien saisonnier pour prolonger la durée de vie et l’apparence de votre extérieur.",
+    blog1Cat:"Après la grêle", blog1Title:"Vérification rapide après une tempête", blog1Text:"Faites le tour de la maison et regardez le revêtement fissuré, le fascia lâche, le métal bossé, les vents abîmés, les bardeaux manquants et les points où l’eau pourrait entrer. Les petits dommages se réparent mieux avant qu’ils s’aggravent.",
+    blog2Cat:"Entretien du siding", blog2Title:"Garder le revêtement propre et sharp", blog2Text:"Rincez la poussière à basse pression, gardez la chaleur du BBQ loin du vinyle, coupez les branches qui touchent au mur, et vérifiez les coins et trims après les gros vents ou la grêle.",
+    blog3Cat:"Entretien extérieur", blog3Title:"Protéger soffite, fascia et cladding", blog3Text:"Gardez les gouttières dégagées, surveillez le fascia qui descend, assurez-vous que les soffites ventilés restent ouverts, et inspectez les joints de panneaux. Une bonne gestion de l’eau protège tout le système extérieur.",
+    blog4Cat:"Choix de matériaux", blog4Title:"Choisir la bonne finition", blog4Text:"Le vinyle est économique, Hardie donne un look plus solide et premium, le cladding crée des accents modernes, et la toiture devrait être choisie en pensant au vent et à la grêle de l’Alberta.",
     contactSmall:"Protégeons", contactTitle:"Votre maison",
     hours:"Lun–ven, 8 h–18 h", hoursText:"Nous sommes disponibles quand vous en avez besoin.",
     finalCta:"Obtenir ma soumission gratuite",
